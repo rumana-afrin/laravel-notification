@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -50,7 +51,7 @@ Route::middleware(['auth', 'role:user'])->prefix('web')->group(function () {
     ]);
 });
 
-
+//email verification routes
 Route::get('verification.notice', [EmailVerificationController::class, 'notice'])->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
@@ -60,4 +61,10 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 've
 Route::post('/email/resend', [EmailVerificationController::class, 'resendWithoutLogin'])
 ->middleware(['throttle:6,1']) // 6 requests per minute
 ->name('verification.resend');
+ 
+//forget password route
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('reset.password');
+Route::post('/update-password', [ForgotPasswordController::class, 'resetPassword'])->name('update.password');
 

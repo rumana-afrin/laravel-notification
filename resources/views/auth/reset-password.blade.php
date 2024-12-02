@@ -67,20 +67,21 @@
 </head>
 
 <body>
+
+
+
     <div class="container">
         <div class="register-form">
 
-            <form  action="{{ route('login.store') }}" method="POST" class="regForm">
+
+            <form action="{{ route('update.password') }}" method="POST" class="regForm">
                 @csrf
 
-                @if (session('status'))
-                    <div class="alert alert-success">
-                        Status: {{ session('status') }}
-                    </div>
-                @endif
-                
+                <input type="hidden" name="token" value="{{ $token }}">
+
                 <div class="navbar-brand d-flex justify-content-center">
-                    <img src="{{asset('assets/Bdcalling Black logo.png')}}" alt="" width="90" height="30">
+                    <img src="{{ asset('assets/Bdcalling Black logo.png') }}" alt="" width="90"
+                        height="30">
                 </div>
 
                 <label for="email" class="form-label">Email</label><br>
@@ -97,25 +98,27 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
 
+                <label for="confirmPassword" class="form-label">Confirm Password</label><br>
+                <input type="password" id="confirmPassword" name="password_confirmation" class="form-control"
+                    aria-describedby="passwordHelpBlock">
+
                 <div>
                     <input type="checkbox" id="chk"> <span class="form-label">show password</span>
-                    <a href="{{route('password.request')}}">Forget Password?</a>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-end">
-                    <button type="submit" class="button rounded-2">LOG IN</button>
-                    <div>
-                        <input type="checkbox" id="chk"> <span class="form-label">Remember me</span>
-                    </div>
+                    <button type="submit" class="button rounded-2">Reset Password</button>
+
                 </div>
             </form>
-          
+
         </div>
     </div>
 
 
     @include('frontend.layout.script'); <!-- added all script file link-->
     <script>
+        "use strict";
         const pwd = document.getElementById('password');
         const chk = document.getElementById('chk');
 
@@ -123,6 +126,7 @@
             pwd.type = chk.checked ? "text" : "password";
         }
     </script>
+
 </body>
 
 </html>

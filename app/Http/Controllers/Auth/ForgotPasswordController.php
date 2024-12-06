@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
             $message->to($request->email);
             $message->subject("reset password");
         });
-        return redirect()->route('login');
+        return redirect()->back()->with('status', "The reset link has been sent successfully!");
 
     }
 
@@ -71,7 +71,7 @@ class ForgotPasswordController extends Controller
             'password' => Hash::make($request->password)
         ]);
         DB::table('password_reset_tokens')->where('email', $request->email)->delete();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('status', "Your password has been reset successfully.");
     
     }
 }

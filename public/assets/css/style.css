@@ -1,39 +1,62 @@
-
-
 /* start nav menue desgin */
-    .redlinem {
-        position: relative;
-    }
-    .redlinem::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0px;
-        height: 2px;
-        background-color: rgb(65, 161, 1);
-    }
+.redlinem {
+    position: relative;
+}
 
-    .redlinem:hover::after {
-        width: 100%;
-        transition: .5s;
-    }
+.redlinem::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0px;
+    height: 2px;
+    background-color: rgb(65, 161, 1);
+}
 
-    /* end nav menue desgin */
+.redlinem:hover::after {
+    width: 100%;
+    transition: .5s;
+}
 
-    .redlinem:hover {
-        color: rgb(65, 161, 1);
-    }
-    .custom-link {
-        text-decoration: none;
-        font-size: 16px;
-        color: #000;
-    }
-    
-    .custom-link:hover {
-        color: #007bff; /* Change color on hover */
-        text-decoration: underline; /* Optional hover effect */
-    }
-    
-    
+/* end nav menue desgin */
 
+.redlinem:hover {
+    color: rgb(65, 161, 1);
+}
+
+.custom-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+}
+
+.custom-link:hover {
+    color: #007bff;
+    /* Change color on hover */
+    text-decoration: underline;
+    /* Optional hover effect */
+}
+
+/* ---------------------------start search box and dropdown---------------------------------- */
+.search-box:hover {
+    background-color: rgb(65, 161, 1);
+}
+
+.bi-search:hover {
+    color: white;
+    font-size: 20px;
+}
+
+.drop-item {
+    width: 400px;
+}
+
+.left-drop-item {
+    width: 200px;
+}
+
+.right-drop-item {
+    width: 200px;
+}
+
+/* ---------------------------end search box and dropdown---------------------------------- */

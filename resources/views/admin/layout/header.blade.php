@@ -3,7 +3,7 @@
 
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{url('/')}}" class="logo d-flex align-items-center">
             <img src="{{ asset('assets/Bdcalling Black logo.png') }}" alt="">
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>

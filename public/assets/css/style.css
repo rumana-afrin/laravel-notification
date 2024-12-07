@@ -1,4 +1,9 @@
 /* start nav menue desgin */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .redlinem {
     position: relative;
 }
@@ -59,4 +64,42 @@
     width: 200px;
 }
 
-/* ---------------------------end search box and dropdown---------------------------------- */
+/* ---------------------------end
+/* ---------------------------start stickynav ---------------------------------- */
+.sticky_nav {
+    max-width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* ---------------------------start main sention---------------------------------- */
+.post-section{
+    margin-top: 100px;
+}
+.content,.post-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Editors-Pick {
+    margin-left: 20px;
+    width: 22%;
+}
+.herodiv{
+    width: 78%;  
+}
+.posts {
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.Pick {
+   margin-top: 35px;
+}
+.breadcrumb > li > a{
+    color: rgb(65, 161, 1);
+}
+
